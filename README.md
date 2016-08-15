@@ -42,7 +42,7 @@ You can stop when you feel the code is good enough, something you can come back 
 # Credits and other programming languages
 
 This kata is a Java port of the original Incomprehensible Finder Refactoring Kata created by [K. Scott Allen](https://github.com/OdeToCode) and ported by [Tom Cammann](https://github.com/takac). 
-You can also find [the kata in C#](https://github.com/OdeToCode/Katas/tree/master/Refactoring/C#) and [in Php](https://github.com/CodelyTV/incomprehensible-finder-refactoring-kata).
+You can also find [the kata in C#](https://github.com/DoDevJutsu/incomprehensible-finder-refactoring-c-sharp) and [in Php](https://github.com/CodelyTV/incomprehensible-finder-refactoring-kata).
 
-We put the Java version in a separate repository in order to have it available for the [Software Craftsmanship Barcelona Coding Dojo session](http://www.meetup.com/Barcelona-Software-Craftsmanship/events/233107734/).
+We put the original Java version in an independent repository in order to make it more easily available for the [Software Craftsmanship Barcelona Coding Dojo session](http://www.meetup.com/Barcelona-Software-Craftsmanship/events/233107734/).
 Come with us and have some fun if you're near Barcelona the next Monday, August 22nd!
