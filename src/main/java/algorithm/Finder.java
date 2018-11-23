@@ -5,8 +5,8 @@ import java.util.List;
 public class Finder {
 	private final List<Person> people;
 
-	public Finder(List<Person> p) {
-		people = p;
+	public Finder(List<Person> people) {
+		this.people = people;
 	}
 
 	public F Find(FT ft) {
