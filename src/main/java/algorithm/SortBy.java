@@ -5,14 +5,14 @@ public enum SortBy {
 	Closer {
         @Override
         Pair choose(Pair pairA, Pair pairB) {
-            return pairA.areCloserInAgeThan(pairB) ? pairA : pairB;
+            return pairA.closestInAge(pairB);
         }
     },
 
     Further {
         @Override
         Pair choose(Pair pairA, Pair pairB) {
-            return pairA.areCloserInAgeThan(pairB) ? pairB : pairA;
+            return pairA.furthestInAge(pairB);
         }
     };
 

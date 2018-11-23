@@ -21,11 +21,19 @@ public class Pair {
 		return oldest.ageDifferenceWith(youngest);
 	}
 
-	boolean areCloserInAgeThan(Pair answer) {
+	private boolean isCloserInAgeThan(Pair answer) {
 		return ageDifference() < answer.ageDifference();
 	}
 
-    @Override
+	Pair closestInAge(Pair anotherPair) {
+		return isCloserInAgeThan(anotherPair) ? this : anotherPair;
+	}
+
+	Pair furthestInAge(Pair anotherPair) {
+		return isCloserInAgeThan(anotherPair) ? anotherPair : this;
+	}
+
+	@Override
 	public boolean equals(Object o) {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
