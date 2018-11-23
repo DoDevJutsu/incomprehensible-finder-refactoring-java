@@ -17,7 +17,7 @@ public class Finder {
 				F r = new F();
 				Person personA = people.get(i);
 				Person personB = people.get(j);
-				if (personA.birthDate.getTime() < personB.birthDate.getTime()) {
+				if (personA.isYoungerThan(personB)) {
 					r.P1 = personA;
 					r.P2 = personB;
 				} else {
