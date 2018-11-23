@@ -14,18 +14,18 @@ public class Finder {
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				F r = new F();
+				F result = new F();
 				Person personA = people.get(i);
 				Person personB = people.get(j);
 				if (personA.isYoungerThan(personB)) {
-					r.P1 = personA;
-					r.P2 = personB;
+					result.P1 = personA;
+					result.P2 = personB;
 				} else {
-					r.P1 = personB;
-					r.P2 = personA;
+					result.P1 = personB;
+					result.P2 = personA;
 				}
-				r.ageDifference = r.P2.ageDifferenceWith(r.P1);
-				tr.add(r);
+				result.ageDifference = result.P2.ageDifferenceWith(result.P1);
+				tr.add(result);
 			}
 		}
 
