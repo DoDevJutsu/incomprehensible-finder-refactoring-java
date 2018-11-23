@@ -1,20 +1,29 @@
 package algorithm;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class Pair {
 	private Person youngest;
 	private Person oldest;
 
-	private Pair(Person youngest, Person oldest) {
+	public Pair(Person youngest, Person oldest) {
+		if (youngest.youngest(oldest) != youngest) {
+			throw new RuntimeException("First person must be the youngest");
+		}
+
 		this.youngest = youngest;
 		this.oldest = oldest;
 	}
 
-	public static Pair fromUnordered(Person personA, Person personB) {
-		return new Pair(
+	public static Optional<Pair> fromUnordered(Person personA, Person personB) {
+		if (personA.equals(personB)) {
+			return Optional.empty();
+		}
+
+		return Optional.of(new Pair(
 				personA.youngest(personB),
-				personA.oldest(personB));
+				personA.oldest(personB)));
 	}
 
 	private long ageDifference() {

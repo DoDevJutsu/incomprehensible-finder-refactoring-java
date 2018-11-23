@@ -2,6 +2,7 @@ package algorithm;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Stream;
 
 public class Finder {
 	private final List<Person> people;
@@ -11,20 +12,22 @@ public class Finder {
 	}
 
 	public Optional<Pair> Find(SortBy sortBy) {
-		return pairs().stream().reduce(sortBy::choose);
+		return pairs().reduce(sortBy::choose);
     }
 
-	private List<Pair> pairs() {
-		List<Pair> pairs = new ArrayList<>();
+	private Stream<Pair> pairs() {
+		return people.stream().flatMap(this::combine);
+	}
 
-		for (Person outerPerson : people) {
-			for (Person innerPerson : people) {
-				if (innerPerson != outerPerson) {
-					pairs.add(Pair.fromUnordered(outerPerson, innerPerson));
-				}
-			}
+	private Stream<Pair> combine(Person outerPerson) {
+		List<Optional<Pair>> pairs = new ArrayList<>();
+
+		for (Person innerPerson : people) {
+			pairs.add(Pair.fromUnordered(outerPerson, innerPerson));
 		}
 
-		return pairs;
+		return pairs.stream()
+				.filter(Optional::isPresent)
+				.map(Optional::get);
 	}
 }
