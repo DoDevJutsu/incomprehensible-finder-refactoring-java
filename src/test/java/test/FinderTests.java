@@ -8,7 +8,7 @@ import java.util.List;
 import org.junit.Test;
 
 import algorithm.Result;
-import algorithm.FT;
+import algorithm.SortBy;
 import algorithm.Finder;
 import algorithm.Person;
 
@@ -24,7 +24,7 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(FT.One);
+		Result result = finder.Find(SortBy.Closer);
 		assertEquals(null, result.P1);
 
 		assertEquals(null, result.P2);
@@ -37,7 +37,7 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(FT.One);
+		Result result = finder.Find(SortBy.Closer);
 
 		assertEquals(null, result.P1);
 		assertEquals(null, result.P2);
@@ -50,7 +50,7 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(FT.One);
+		Result result = finder.Find(SortBy.Closer);
 
 		assertEquals(sue, result.P1);
 		assertEquals(greg, result.P2);
@@ -64,7 +64,7 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(FT.Two);
+		Result result = finder.Find(SortBy.Further);
 
 		assertEquals(greg, result.P1);
 		assertEquals(mike, result.P2);
@@ -79,7 +79,7 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(FT.Two);
+		Result result = finder.Find(SortBy.Further);
 
 		assertEquals(sue, result.P1);
 		assertEquals(sarah, result.P2);
@@ -95,7 +95,7 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(FT.One);
+		Result result = finder.Find(SortBy.Closer);
 
 		assertEquals(sue, result.P1);
 		assertEquals(greg, result.P2);

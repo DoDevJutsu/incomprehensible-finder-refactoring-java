@@ -9,7 +9,7 @@ public class Finder {
 		this.people = people;
 	}
 
-	public Result Find(FT ft) {
+	public Result Find(SortBy sortBy) {
 		List<Result> tr = new ArrayList<Result>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
@@ -34,14 +34,14 @@ public class Finder {
 
 		Result answer = tr.get(0);
 		for (Result result : tr) {
-			switch (ft) {
-				case One :
+			switch (sortBy) {
+				case Closer:
 					if (result.areCloserInAgeThan(answer)) {
 						answer = result;
 					}
 					break;
 
-				case Two :
+				case Further:
 					if (result.areFurtherInAgeThan(answer)) {
 						answer = result;
 					}
