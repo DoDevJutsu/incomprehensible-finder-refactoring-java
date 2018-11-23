@@ -11,16 +11,16 @@ public class Finder {
 	}
 
 	public Optional<Pair> Find(SortBy sortBy) {
-		List<Pair> tr = new ArrayList<>();
+		List<Pair> pairs = new ArrayList<>();
 
 		for (Person outerPerson : people) {
 			for (Person innerPerson : people) {
 				if (innerPerson != outerPerson) {
-					tr.add(Pair.fromUnordered(outerPerson, innerPerson));
+					pairs.add(Pair.fromUnordered(outerPerson, innerPerson));
 				}
 			}
 		}
 
-        return tr.stream().reduce(sortBy::choose);
+        return pairs.stream().reduce(sortBy::choose);
     }
 }
