@@ -11,6 +11,10 @@ public class Finder {
 	}
 
 	public Optional<Pair> Find(SortBy sortBy) {
+		return pairs().stream().reduce(sortBy::choose);
+    }
+
+	private List<Pair> pairs() {
 		List<Pair> pairs = new ArrayList<>();
 
 		for (Person outerPerson : people) {
@@ -21,6 +25,6 @@ public class Finder {
 			}
 		}
 
-        return pairs.stream().reduce(sortBy::choose);
-    }
+		return pairs;
+	}
 }
