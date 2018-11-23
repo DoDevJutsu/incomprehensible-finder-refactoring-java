@@ -6,7 +6,7 @@ public class Person {
 	public String name;
 	public Date birthDate;
 
-	public Boolean isYoungerThan(Person anotherPerson) {
+	Boolean isYoungerThan(Person anotherPerson) {
 		return birthDate.getTime() < anotherPerson.birthDate.getTime();
 	}
 }
