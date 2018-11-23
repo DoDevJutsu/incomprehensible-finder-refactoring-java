@@ -1,6 +1,7 @@
 package algorithm;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Finder {
 	private final List<Person> people;
@@ -9,27 +10,25 @@ public class Finder {
 		this.people = people;
 	}
 
-	public Pair Find(SortBy sortBy) {
-		List<Pair> tr = new ArrayList<Pair>();
+	public Optional<Pair> Find(SortBy sortBy) {
+		List<Pair> tr = new ArrayList<>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				Pair pair = new Pair();
 				Person personA = people.get(i);
 				Person personB = people.get(j);
+				Pair pair;
 				if (personA.isYoungerThan(personB)) {
-					pair.personA = personA;
-					pair.personB = personB;
+					pair = new Pair(personA, personB);
 				} else {
-					pair.personA = personB;
-					pair.personB = personA;
+					pair = new Pair(personB, personA);
 				}
 				tr.add(pair);
 			}
 		}
 
 		if (tr.size() < 1) {
-			return new Pair();
+			return Optional.empty();
 		}
 
 		Pair answer = tr.get(0);
@@ -49,6 +48,6 @@ public class Finder {
 			}
 		}
 
-		return answer;
+		return Optional.of(answer);
 	}
 }

@@ -1,9 +1,12 @@
 package test;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.junit.Test;
 
@@ -24,10 +27,9 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		Finder finder = new Finder(list);
 
-		Pair pair = finder.Find(SortBy.Closer);
-		assertEquals(null, pair.personA);
+		Optional<Pair> pair = finder.Find(SortBy.Closer);
 
-		assertEquals(null, pair.personB);
+		assertFalse(pair.isPresent());
 	}
 
 	@Test
@@ -37,10 +39,9 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Pair pair = finder.Find(SortBy.Closer);
+		Optional<Pair> pair = finder.Find(SortBy.Closer);
 
-		assertEquals(null, pair.personA);
-		assertEquals(null, pair.personB);
+		assertFalse(pair.isPresent());
 	}
 
 	@Test
@@ -50,10 +51,11 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		Pair pair = finder.Find(SortBy.Closer);
+		Optional<Pair> pair = finder.Find(SortBy.Closer);
 
-		assertEquals(sue, pair.personA);
-		assertEquals(greg, pair.personB);
+		Pair expectedPair = new Pair(sue, greg);
+		assertTrue(pair.isPresent());
+		assertEquals(expectedPair, pair.get());
 	}
 
 	@Test
@@ -64,10 +66,11 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Pair pair = finder.Find(SortBy.Further);
+		Optional<Pair> pair = finder.Find(SortBy.Further);
 
-		assertEquals(greg, pair.personA);
-		assertEquals(mike, pair.personB);
+		Pair expectedPair = new Pair(greg, mike);
+		assertTrue(pair.isPresent());
+		assertEquals(expectedPair, pair.get());
 	}
 
 	@Test
@@ -79,10 +82,11 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		Pair pair = finder.Find(SortBy.Further);
+		Optional<Pair> pair = finder.Find(SortBy.Further);
 
-		assertEquals(sue, pair.personA);
-		assertEquals(sarah, pair.personB);
+		Pair expectedPair = new Pair(sue, sarah);
+		assertTrue(pair.isPresent());
+		assertEquals(expectedPair, pair.get());
 	}
 
 	@Test
@@ -95,10 +99,11 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Pair pair = finder.Find(SortBy.Closer);
+		Optional<Pair> pair = finder.Find(SortBy.Closer);
 
-		assertEquals(sue, pair.personA);
-		assertEquals(greg, pair.personB);
+		Pair expectedPair = new Pair(sue, greg);
+		assertTrue(pair.isPresent());
+		assertEquals(expectedPair, pair.get());
 	}
 
 }
