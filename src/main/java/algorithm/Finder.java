@@ -23,10 +23,6 @@ public class Finder {
 			}
 		}
 
-		if (tr.size() < 1) {
-			return Optional.empty();
-		}
-
 		Pair answer = tr.stream().reduce(sortBy::choose).get();
 
 		return Optional.of(answer);
