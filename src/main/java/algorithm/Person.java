@@ -3,11 +3,9 @@ package algorithm;
 import java.util.Date;
 
 public class Person {
-	private String name;
 	private Date birthDate;
 
-	public Person(String name, Date birthDate) {
-		this.name = name;
+	public Person(Date birthDate) {
 		this.birthDate = birthDate;
 	}
 
