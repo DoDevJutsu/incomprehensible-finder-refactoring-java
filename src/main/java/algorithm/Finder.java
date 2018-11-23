@@ -13,9 +13,11 @@ public class Finder {
 	public Optional<Pair> Find(SortBy sortBy) {
 		List<Pair> tr = new ArrayList<>();
 
-		for (int i = 0; i < people.size() - 1; i++) {
-			for (int j = i + 1; j < people.size(); j++) {
-				tr.add(Pair.fromUnordered(people.get(i), people.get(j)));
+		for (Person outerPerson : people) {
+			for (Person innerPerson : people) {
+				if (innerPerson != outerPerson) {
+					tr.add(Pair.fromUnordered(outerPerson, innerPerson));
+				}
 			}
 		}
 
