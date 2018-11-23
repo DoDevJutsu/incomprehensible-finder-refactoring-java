@@ -3,16 +3,24 @@ package algorithm;
 import java.util.Objects;
 
 public class Pair {
-	private Person personA;
-	private Person personB;
+	private Person youngest;
+	private Person oldest;
 
-	public Pair(Person personA, Person personB) {
-		this.personA = personA;
-		this.personB = personB;
+	private Pair(Person youngest, Person oldest) {
+		this.youngest = youngest;
+		this.oldest = oldest;
+	}
+
+	public static Pair fromUnordered(Person personA, Person personB) {
+		if (personA.isYoungerThan(personB)) {
+			return new Pair(personA, personB);
+		} else {
+			return new Pair(personB, personA);
+		}
 	}
 
 	private long ageDifference() {
-		return personB.ageDifferenceWith(personA);
+		return oldest.ageDifferenceWith(youngest);
 	}
 
 	boolean areCloserInAgeThan(Pair answer) {
@@ -28,12 +36,12 @@ public class Pair {
 		if (this == o) return true;
 		if (o == null || getClass() != o.getClass()) return false;
 		Pair pair = (Pair) o;
-		return Objects.equals(personA, pair.personA) &&
-				Objects.equals(personB, pair.personB);
+		return Objects.equals(youngest, pair.youngest) &&
+				Objects.equals(oldest, pair.oldest);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(personA, personB);
+		return Objects.hash(youngest, oldest);
 	}
 }

@@ -53,7 +53,7 @@ public class FinderTests {
 
 		Optional<Pair> pair = finder.Find(SortBy.Closer);
 
-		Pair expectedPair = new Pair(sue, greg);
+		Pair expectedPair = Pair.fromUnordered(sue, greg);
 		assertTrue(pair.isPresent());
 		assertEquals(expectedPair, pair.get());
 	}
@@ -68,7 +68,7 @@ public class FinderTests {
 
 		Optional<Pair> pair = finder.Find(SortBy.Further);
 
-		Pair expectedPair = new Pair(greg, mike);
+		Pair expectedPair = Pair.fromUnordered(greg, mike);
 		assertTrue(pair.isPresent());
 		assertEquals(expectedPair, pair.get());
 	}
@@ -84,7 +84,7 @@ public class FinderTests {
 
 		Optional<Pair> pair = finder.Find(SortBy.Further);
 
-		Pair expectedPair = new Pair(sue, sarah);
+		Pair expectedPair = Pair.fromUnordered(sue, sarah);
 		assertTrue(pair.isPresent());
 		assertEquals(expectedPair, pair.get());
 	}
@@ -101,7 +101,7 @@ public class FinderTests {
 
 		Optional<Pair> pair = finder.Find(SortBy.Closer);
 
-		Pair expectedPair = new Pair(sue, greg);
+		Pair expectedPair = Pair.fromUnordered(sue, greg);
 		assertTrue(pair.isPresent());
 		assertEquals(expectedPair, pair.get());
 	}

@@ -15,15 +15,7 @@ public class Finder {
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				Person personA = people.get(i);
-				Person personB = people.get(j);
-				Pair pair;
-				if (personA.isYoungerThan(personB)) {
-					pair = new Pair(personA, personB);
-				} else {
-					pair = new Pair(personB, personA);
-				}
-				tr.add(pair);
+				tr.add(Pair.fromUnordered(people.get(i), people.get(j)));
 			}
 		}
 
