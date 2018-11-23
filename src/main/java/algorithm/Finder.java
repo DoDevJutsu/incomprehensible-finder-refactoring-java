@@ -11,6 +11,10 @@ public class Finder {
 	}
 
 	public Optional<Pair> Find(SortBy sortBy) {
+		if (!areThereAnyPairs()) {
+			return Optional.empty();
+		}
+
 		List<Pair> tr = new ArrayList<>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
@@ -26,6 +30,10 @@ public class Finder {
 		Pair answer = tr.stream().reduce(sortBy::choose).get();
 
 		return Optional.of(answer);
+	}
+
+	private boolean areThereAnyPairs() {
+		return people.size() >= 2;
 	}
 
 }
