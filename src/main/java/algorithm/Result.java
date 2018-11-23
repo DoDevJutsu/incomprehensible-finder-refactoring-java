@@ -7,11 +7,11 @@ public class Result {
 		return P2.ageDifferenceWith(P1);
 	}
 
-	boolean hasCloserAgesThan(Result answer) {
+	boolean areCloserInAgeThan(Result answer) {
 		return ageDifference() < answer.ageDifference();
 	}
 
-	boolean hasFartherAgesThan(Result answer) {
-		return !hasCloserAgesThan(answer);
+	boolean areFurtherInAgeThan(Result answer) {
+		return !areCloserInAgeThan(answer);
 	}
 }
