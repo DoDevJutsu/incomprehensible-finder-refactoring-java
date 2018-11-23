@@ -24,7 +24,7 @@ public class Finder {
 					r.P1 = personB;
 					r.P2 = personA;
 				}
-				r.D = r.P2.birthDate.getTime() - r.P1.birthDate.getTime();
+				r.D = r.P2.ageDifferenceWith(r.P1);
 				tr.add(r);
 			}
 		}

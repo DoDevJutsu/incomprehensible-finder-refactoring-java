@@ -9,5 +9,9 @@ public class Person {
 	Boolean isYoungerThan(Person anotherPerson) {
 		return birthDate.getTime() < anotherPerson.birthDate.getTime();
 	}
+
+	long ageDifferenceWith(Person anotherPerson) {
+		return birthDate.getTime() - anotherPerson.birthDate.getTime();
+	}
 }
 
