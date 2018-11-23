@@ -36,13 +36,13 @@ public class Finder {
 		for (Result result : tr) {
 			switch (ft) {
 				case One :
-					if (result.ageDifference() < answer.ageDifference()) {
+					if (result.hasCloserAgesThan(answer)) {
 						answer = result;
 					}
 					break;
 
 				case Two :
-					if (result.ageDifference() > answer.ageDifference()) {
+					if (result.hasFartherAgesThan(answer)) {
 						answer = result;
 					}
 					break;
