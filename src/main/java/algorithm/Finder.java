@@ -20,6 +20,5 @@ public class Finder {
 		}
 
         return tr.stream().reduce(sortBy::choose);
-
     }
 }
