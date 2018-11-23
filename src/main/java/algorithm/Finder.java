@@ -24,7 +24,7 @@ public class Finder {
 					r.P1 = personB;
 					r.P2 = personA;
 				}
-				r.D = r.P2.ageDifferenceWith(r.P1);
+				r.ageDifference = r.P2.ageDifferenceWith(r.P1);
 				tr.add(r);
 			}
 		}
@@ -37,13 +37,13 @@ public class Finder {
 		for (F result : tr) {
 			switch (ft) {
 				case One :
-					if (result.D < answer.D) {
+					if (result.ageDifference < answer.ageDifference) {
 						answer = result;
 					}
 					break;
 
 				case Two :
-					if (result.D > answer.D) {
+					if (result.ageDifference > answer.ageDifference) {
 						answer = result;
 					}
 					break;
