@@ -20,13 +20,8 @@ public class Finder {
 	}
 
 	private Stream<Pair> combineAllWith(Person person) {
-		List<Optional<Pair>> pairs = new ArrayList<>();
-
-		for (Person innerPerson : people) {
-			pairs.add(Pair.fromUnordered(person, innerPerson));
-		}
-
-		return pairs.stream()
+		return people.stream()
+				.map(innerPerson -> Pair.fromUnordered(innerPerson, person))
 				.filter(Optional::isPresent)
 				.map(Optional::get);
 	}
