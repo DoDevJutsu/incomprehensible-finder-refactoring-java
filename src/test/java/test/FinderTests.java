@@ -15,22 +15,10 @@ import algorithm.Person;
 
 public class FinderTests {
 
-	Person sue = new Person();
-	Person greg = new Person();
-	Person sarah = new Person();
-	Person mike = new Person();
-
-	@Before
-	public void setup() {
-		sue.name = "Sue";
-		sue.birthDate = new Date(50, 0, 1);
-		greg.name = "Greg";
-		greg.birthDate = new Date(52, 5, 1);
-		sarah.name = "Sarah";
-		sarah.birthDate = new Date(82, 0, 1);
-		mike.name = "Mike";
-		mike.birthDate = new Date(79, 0, 1);
-	}
+	Person sue = new Person("Sue", new Date(50, 0, 1));
+	Person greg = new Person("Greg", new Date(52, 5, 1));
+	Person sarah = new Person("Sarah", new Date(82, 0, 1));
+	Person mike = new Person("Mike", new Date(79, 0, 1));
 
 	@Test
 	public void Returns_Empty_Results_When_Given_Empty_List() {
