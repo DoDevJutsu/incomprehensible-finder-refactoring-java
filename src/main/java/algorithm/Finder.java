@@ -18,11 +18,11 @@ public class Finder {
 				Person personA = people.get(i);
 				Person personB = people.get(j);
 				if (personA.isYoungerThan(personB)) {
-					result.P1 = personA;
-					result.P2 = personB;
+					result.personA = personA;
+					result.personB = personB;
 				} else {
-					result.P1 = personB;
-					result.P2 = personA;
+					result.personA = personB;
+					result.personB = personA;
 				}
 				tr.add(result);
 			}
