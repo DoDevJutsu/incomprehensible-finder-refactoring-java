@@ -9,12 +9,12 @@ public class Finder {
 		this.people = people;
 	}
 
-	public F Find(FT ft) {
-		List<F> tr = new ArrayList<F>();
+	public Result Find(FT ft) {
+		List<Result> tr = new ArrayList<Result>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				F result = new F();
+				Result result = new Result();
 				Person personA = people.get(i);
 				Person personB = people.get(j);
 				if (personA.isYoungerThan(personB)) {
@@ -30,11 +30,11 @@ public class Finder {
 		}
 
 		if (tr.size() < 1) {
-			return new F();
+			return new Result();
 		}
 
-		F answer = tr.get(0);
-		for (F result : tr) {
+		Result answer = tr.get(0);
+		for (Result result : tr) {
 			switch (ft) {
 				case One :
 					if (result.ageDifference < answer.ageDifference) {
