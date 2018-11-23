@@ -23,10 +23,7 @@ public class Finder {
 			return Optional.empty();
 		}
 
-		Pair answer = tr.get(0);
-		for (Pair pair : tr) {
-            answer = sortBy.choose(answer, pair);
-        }
+		Pair answer = tr.stream().reduce(sortBy::choose).get();
 
 		return Optional.of(answer);
 	}
