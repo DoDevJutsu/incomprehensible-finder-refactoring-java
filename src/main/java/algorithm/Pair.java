@@ -8,7 +8,7 @@ public class Pair {
 	private Person oldest;
 
 	public Pair(Person youngest, Person oldest) {
-		if (youngest.youngest(oldest) != youngest) {
+		if (!youngest.isYoungerThan(oldest)) {
 			throw new RuntimeException("First person must be the youngest");
 		}
 
@@ -16,7 +16,7 @@ public class Pair {
 		this.oldest = oldest;
 	}
 
-	public static Optional<Pair> fromUnordered(Person personA, Person personB) {
+	static Optional<Pair> fromUnordered(Person personA, Person personB) {
 		if (personA.equals(personB)) {
 			return Optional.empty();
 		}

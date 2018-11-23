@@ -9,7 +9,7 @@ public class Person {
 		this.birthDate = birthDate;
 	}
 
-	private Boolean isYoungerThan(Person anotherPerson) {
+	Boolean isYoungerThan(Person anotherPerson) {
 		return birthDate.getTime() < anotherPerson.birthDate.getTime();
 	}
 
