@@ -9,41 +9,41 @@ public class Finder {
 		this.people = people;
 	}
 
-	public Result Find(SortBy sortBy) {
-		List<Result> tr = new ArrayList<Result>();
+	public Pair Find(SortBy sortBy) {
+		List<Pair> tr = new ArrayList<Pair>();
 
 		for (int i = 0; i < people.size() - 1; i++) {
 			for (int j = i + 1; j < people.size(); j++) {
-				Result result = new Result();
+				Pair pair = new Pair();
 				Person personA = people.get(i);
 				Person personB = people.get(j);
 				if (personA.isYoungerThan(personB)) {
-					result.personA = personA;
-					result.personB = personB;
+					pair.personA = personA;
+					pair.personB = personB;
 				} else {
-					result.personA = personB;
-					result.personB = personA;
+					pair.personA = personB;
+					pair.personB = personA;
 				}
-				tr.add(result);
+				tr.add(pair);
 			}
 		}
 
 		if (tr.size() < 1) {
-			return new Result();
+			return new Pair();
 		}
 
-		Result answer = tr.get(0);
-		for (Result result : tr) {
+		Pair answer = tr.get(0);
+		for (Pair pair : tr) {
 			switch (sortBy) {
 				case Closer:
-					if (result.areCloserInAgeThan(answer)) {
-						answer = result;
+					if (pair.areCloserInAgeThan(answer)) {
+						answer = pair;
 					}
 					break;
 
 				case Further:
-					if (result.areFurtherInAgeThan(answer)) {
-						answer = result;
+					if (pair.areFurtherInAgeThan(answer)) {
+						answer = pair;
 					}
 					break;
 			}

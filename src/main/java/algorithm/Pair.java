@@ -1,5 +1,5 @@
 package algorithm;
-public class Result {
+public class Pair {
 	public Person personA;
 	public Person personB;
 
@@ -7,11 +7,11 @@ public class Result {
 		return personB.ageDifferenceWith(personA);
 	}
 
-	boolean areCloserInAgeThan(Result answer) {
+	boolean areCloserInAgeThan(Pair answer) {
 		return ageDifference() < answer.ageDifference();
 	}
 
-	boolean areFurtherInAgeThan(Result answer) {
+	boolean areFurtherInAgeThan(Pair answer) {
 		return !areCloserInAgeThan(answer);
 	}
 }

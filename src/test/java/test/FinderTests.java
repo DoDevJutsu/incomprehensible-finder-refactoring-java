@@ -7,7 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
-import algorithm.Result;
+import algorithm.Pair;
 import algorithm.SortBy;
 import algorithm.Finder;
 import algorithm.Person;
@@ -24,10 +24,10 @@ public class FinderTests {
 		List<Person> list = new ArrayList<Person>();
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(SortBy.Closer);
-		assertEquals(null, result.personA);
+		Pair pair = finder.Find(SortBy.Closer);
+		assertEquals(null, pair.personA);
 
-		assertEquals(null, result.personB);
+		assertEquals(null, pair.personB);
 	}
 
 	@Test
@@ -37,10 +37,10 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(SortBy.Closer);
+		Pair pair = finder.Find(SortBy.Closer);
 
-		assertEquals(null, result.personA);
-		assertEquals(null, result.personB);
+		assertEquals(null, pair.personA);
+		assertEquals(null, pair.personB);
 	}
 
 	@Test
@@ -50,10 +50,10 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(SortBy.Closer);
+		Pair pair = finder.Find(SortBy.Closer);
 
-		assertEquals(sue, result.personA);
-		assertEquals(greg, result.personB);
+		assertEquals(sue, pair.personA);
+		assertEquals(greg, pair.personB);
 	}
 
 	@Test
@@ -64,10 +64,10 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(SortBy.Further);
+		Pair pair = finder.Find(SortBy.Further);
 
-		assertEquals(greg, result.personA);
-		assertEquals(mike, result.personB);
+		assertEquals(greg, pair.personA);
+		assertEquals(mike, pair.personB);
 	}
 
 	@Test
@@ -79,10 +79,10 @@ public class FinderTests {
 		list.add(greg);
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(SortBy.Further);
+		Pair pair = finder.Find(SortBy.Further);
 
-		assertEquals(sue, result.personA);
-		assertEquals(sarah, result.personB);
+		assertEquals(sue, pair.personA);
+		assertEquals(sarah, pair.personB);
 	}
 
 	@Test
@@ -95,10 +95,10 @@ public class FinderTests {
 
 		Finder finder = new Finder(list);
 
-		Result result = finder.Find(SortBy.Closer);
+		Pair pair = finder.Find(SortBy.Closer);
 
-		assertEquals(sue, result.personA);
-		assertEquals(greg, result.personB);
+		assertEquals(sue, pair.personA);
+		assertEquals(greg, pair.personB);
 	}
 
 }
