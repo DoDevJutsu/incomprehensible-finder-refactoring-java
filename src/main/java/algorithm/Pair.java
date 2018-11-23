@@ -12,11 +12,9 @@ public class Pair {
 	}
 
 	public static Pair fromUnordered(Person personA, Person personB) {
-		if (personA.isYoungerThan(personB)) {
-			return new Pair(personA, personB);
-		} else {
-			return new Pair(personB, personA);
-		}
+		return new Pair(
+				personA.youngest(personB),
+				personA.oldest(personB));
 	}
 
 	private long ageDifference() {
