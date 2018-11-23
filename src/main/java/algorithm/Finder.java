@@ -16,14 +16,14 @@ public class Finder {
     }
 
 	private Stream<Pair> pairs() {
-		return people.stream().flatMap(this::combine);
+		return people.stream().flatMap(this::combineAllWith);
 	}
 
-	private Stream<Pair> combine(Person outerPerson) {
+	private Stream<Pair> combineAllWith(Person person) {
 		List<Optional<Pair>> pairs = new ArrayList<>();
 
 		for (Person innerPerson : people) {
-			pairs.add(Pair.fromUnordered(outerPerson, innerPerson));
+			pairs.add(Pair.fromUnordered(person, innerPerson));
 		}
 
 		return pairs.stream()
