@@ -25,21 +25,10 @@ public class Finder {
 
 		Pair answer = tr.get(0);
 		for (Pair pair : tr) {
-			switch (sortBy) {
-				case Closer:
-					if (pair.areCloserInAgeThan(answer)) {
-						answer = pair;
-					}
-					break;
-
-				case Further:
-					if (pair.areFurtherInAgeThan(answer)) {
-						answer = pair;
-					}
-					break;
-			}
-		}
+            answer = sortBy.choose(answer, pair);
+        }
 
 		return Optional.of(answer);
 	}
+
 }
