@@ -20,9 +20,11 @@ public class Finder {
 	}
 
 	private Stream<Pair> combineAllWith(Person person) {
-		return people.stream()
-				.map(innerPerson -> Pair.fromUnordered(innerPerson, person))
-				.filter(Optional::isPresent)
-				.map(Optional::get);
+		return mapNotNull(people.stream()
+				.map(innerPerson -> Pair.fromUnordered(innerPerson, person)));
+	}
+
+	private <T> Stream<T> mapNotNull(Stream<Optional<T>> in) {
+		return in.filter(Optional::isPresent).map(Optional::get);
 	}
 }
